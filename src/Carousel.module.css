@@ -1,0 +1,12 @@
+.content {
+    width: 100%;
+    user-select: none;
+    cursor: pointer;
+    display: grid;
+    justify-content: center;
+}
+
+.content > *{
+    grid-row: 1/2;
+    width: 100%;
+}
