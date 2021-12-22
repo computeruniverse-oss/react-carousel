@@ -1,9 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useInterval, useTimeoutFn, useUpdateEffect } from 'react-use';
+import clsx from 'clsx';
 
 import { CarouselAnimatorProps } from './CarouselAnimator.types';
 
 import styles from './Carousel.module.css';
+
+type SlideCssClasses = {
+    active?: string;
+    default?: string;
+};
 
 interface CarouselProps {
     slidesToShow?: number;
@@ -16,6 +22,7 @@ interface CarouselProps {
     autoplayInterval?: number;
     movementTension?: number;
     movementFriction?: number;
+    slideCssClasses?: SlideCssClasses;
 }
 
 export const CarouselSlides: React.FC<{
@@ -23,7 +30,8 @@ export const CarouselSlides: React.FC<{
     itemCount: number;
     leftMostSlide: number;
     children: Array<React.ReactElement>;
-}> = React.memo(({ leftMostSlide, itemCount, slidesToShow, children }) => {
+    slideCssClasses?: SlideCssClasses;
+}> = React.memo(({ leftMostSlide, itemCount, slidesToShow, children, slideCssClasses }) => {
     const visibleSlides: Array<number> = [];
     for (let i = leftMostSlide; i < leftMostSlide + slidesToShow + 1; i++) {
         const rawIndex = i % itemCount;
@@ -45,6 +53,11 @@ export const CarouselSlides: React.FC<{
                             transform: `translateX(${(leftMostSlide + position) * 100}%)`,
                             gridColumn: `1/2`,
                         },
+                        className: clsx(
+                            item.props.className,
+                            slideCssClasses?.default,
+                            index === leftMostSlide && slideCssClasses?.active,
+                        ),
                     },
                 };
                 return MyDiv;

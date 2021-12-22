@@ -73,3 +73,4 @@ export default MyCarousel;
 | autoplayInterval|`number` (ms)                                                                        |`undefined`| Sets the interval time for the carousel in milliseconds |
 | movementTension |`number`                                                                             |`50`       ||
 | movementFriction|`number`                                                                             |`20`       ||
+| slideCssClasses |`{ default: string, active: string }`                                                  |`undefined`| Sets a default and/or active class to the slides so that you can style your slides in an easier way |
