@@ -43,7 +43,6 @@
         "react-dom": "^17.x"
     },
     "dependencies": {
-        "clsx": "^1.1.1",
         "react-use": "^17.3.1",
         "rebound": "^0.1.0"
     }

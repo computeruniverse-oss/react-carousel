@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import React, { useEffect, useRef, useState } from 'react';
 import { useInterval, useTimeoutFn, useUpdateEffect } from 'react-use';
 
@@ -331,7 +330,7 @@ export const ReactCarousel: React.FC<CarouselProps> = ({
                                     transform: `translateX(${animatedX}%)`,
                                 }}
                                 ref={scrollRef}
-                                className={clsx([styles.content])}
+                                className={styles.content}
                             >
                                 <CarouselSlides
                                     slidesToShow={slidesToShow || 1}
